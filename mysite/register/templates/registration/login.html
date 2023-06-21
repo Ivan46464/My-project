@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:https="http://www.w3.org/1999/xhtml">
+
+<head>
+ <title> Login Here </title>
+
+    <style>
+
+.log
+{
+    display: flex;
+    justify-content: center;
+    color: #2EFF26;
+    font-family: "Times New Roman", Times, serif;
+    font-size: 40px;
+    font-weight: bold;
+    margin: 95px;
+    padding: 10px;
+}
+
+  .login
+  {
+      justify-content: center;
+      border: 3px #2EFF26;
+      width: 450px;
+      height: 250px;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -200px -250px;
+      border: var(--clr-neon) 0.125em solid;
+      padding: 0.25em 0.75em;
+      border-radius: 0.25em;
+}
+
+.text-font
+{
+    font-family: "Times New Roman", Times, serif;
+    font-size: 15px;
+}
+
+.login, .from-group
+{
+      font-family: "Times New Roman", Times, serif;
+      font-size: 20px;
+      padding-top: 15px;
+}
+
+:root {
+  --clr-neon: #2EFF26;
+}
+
+body
+{
+background-color: black !important;
+}
+
+button
+{
+    background-color: black;
+    font-weight: bold;
+    cursor: pointer;
+    transition: opacity 0.15s;
+    color: var(--clr-neon);
+    border: var(--clr-neon) 0.1em solid;
+    padding: 0.20em 0.75em;
+    text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+}
+
+    </style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<p class="log">Login</p>
+
+<div align="center" class="login" style="background-color:black">
+
+<form method="post" class="from-group" style="color:white">
+    {% csrf_token %}
+    {{form.as_p}}
+    <p class = "text-font">Don't have an account? Create one <a href="/register">here</a></p>
+    <button>Login</button>
+
+</form>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

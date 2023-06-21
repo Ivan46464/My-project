@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<h1>Choose chart you want to see</h1>
+<p><a href="{% url 'chart'%}">Chart for expenses</a></p>
+<p><a href="{% url 'chart_side_income'%}">Chart for side income</a></p>
+<p><a href="{% url 'pie_chart'%}">Pie chart for expenses</a></p>
+<p><a href="{% url 'pie_chart_side_income' %}">Pie chart for side income</a></p>
+{%else%}
+<p>Please log in first <a href="/login">here</a>.</p>
+{%endif%}
+{% endblock %}

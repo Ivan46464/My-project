@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Goals
+{% endblock %}
+{% block content %}
+
+<h1>My Goals</h1>
+
+{% if check_goals %}
+    <ul>
+    {% for goal in check_goals %}
+        <li>
+            <a href="{% url 'goal_detail' goal.id %}">{{ goal.save_money }} - {{ goal.goal }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>You haven't set any goals yet.</p>
+{% endif %}
+<a href="{% url 'check' %}">Go back</a><br>
+ <a href="{% url 'home' %}">Home</a>
+{% endblock %}

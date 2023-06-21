@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ goal.goal }}
+{% endblock %}
+
+{% block content %}
+<h1>{{ goal.goal }}</h1>
+{% if user.is_authenticated %}
+<p>Target amount: ${{ goal.save_money }}</p>
+<p>Monthly income: ${{ income.income }}</p>
+
+<p>Annual income: ${{ amount }}</p>
+
+<p>Monthly expenses: ${{ expenses }}</p>
+{% if income.income < expenses %}
+<p>Your monthly expenses are more than what you earn.</p>
+{% else %}
+<p>You have ${{side_income}} from side income </p>
+<p>You have ${{ success }} remaining from this month.</p>
+<p>For you to save ${{ goal.save_money }}, you need to save ${{ success }} for {{ how_many|floatformat:"0" }} months.</p>
+{% endif %}
+{% endif %}
+<a href="{% url 'edit_goal' goal_id=goal.id %}">Edit</a>
+ <form method="post" action="{% url 'delete_goal' goal_id=goal.id %}">
+    {% csrf_token %}
+    <button class="button", type="submit">Delete</button>
+  </form>
+<form method="POST" action="{% url 'finish_detail' goal_id=goal.id %}">
+    {% csrf_token %}
+    <p></p>
+    <button class="button", type="submit">Finish Goal</button>
+</form>
+<a href="{% url 'check_goals' %}">Back to goals list</a>
+{% endblock %}

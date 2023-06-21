@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Input
+{% endblock %}
+{% block content %}
+<h1>Input</h1>
+<div>
+<form method="post" action="">
+{% csrf_token %}
+{{form.as_div}}
+    <p></p>
+    <input class="button", type="submit" value="Submit">
+</form>
+    </div>
+<a href="{% url 'choose_input' %}">Go back</a><br>
+{% endblock %}

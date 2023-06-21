@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load my_filters %}
+{% block title %}
+Input
+{% endblock %}
+{% block content %}
+<p>You have not input your income yet.</p>
+<a href="{% url 'home' %}">Home</a>
+{% endblock %}

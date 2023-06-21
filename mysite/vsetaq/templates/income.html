@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Input
+{% endblock %}
+{% block content %}
+<h1>Input</h1>
+{% if user.is_authenticated%}
+{% if not income_exists %}
+<div>
+<form method="post" action="">
+{% csrf_token %}
+{{form.as_p}}
+    <input class="button", type="submit" value="Submit">
+</form>
+    </div>
+{% else %}
+<div>
+    <a href="/edit_income">Edit</a>
+</div>
+<a href="{% url 'choose_input' %}">Go back</a><br>
+{% endif %}
+{% endif %}
+{% endblock %}

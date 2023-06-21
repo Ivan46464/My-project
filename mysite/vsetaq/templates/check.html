@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<h1>Choose which of your data you want to see</h1>
+<p><a href="/check_goals">Check goals</a></p>
+<p><a href="/check_expenses">Check expenses</a></p>
+<p><a href="/check_side_income">Check side income</a></p>
+<p><a href="/check_finished_goals">Check finished goals</a></p>
+{%else%}
+<p>Please log in first <a href="/login">here</a>.</p>
+{%endif%}
+{% endblock %}

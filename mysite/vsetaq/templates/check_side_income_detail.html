@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+
+{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<p> You have  {{ side_income.side_income }} out of {{ side_income.category }}</p>
+{% endif %}
+<a href="{% url 'side_income_edit' side_income_id=side_income.id %}">Edit</a>
+<form method="post" action="{% url 'side_income_delete' side_income_id=side_income.id %}">
+    {% csrf_token %}
+    <button class="button", type="submit">Delete</button>
+  </form>
+<a href="{% url 'check_side_income' %}">Back to side income list</a>
+{% endblock %}

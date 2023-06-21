@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}
+My Expenses
+{% endblock %}
+{% block content %}
+
+<h1>My Expenses</h1>
+
+{% if expenses %}
+    <ul>
+    {% for expense in expenses %}
+        <li>
+           <a href="{% url 'expenses_detail' expense.id %}">{{ expense.expenses }} - {{ expense.categories }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>You haven't set any expenses yet.</p>
+{% endif %}
+<a href="{% url 'check' %}">Go back</a><br>
+ <a href="{% url 'home' %}">Home</a>
+{% endblock %}

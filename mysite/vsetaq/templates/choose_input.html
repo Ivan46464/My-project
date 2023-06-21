@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}
+{% endblock %}
+{% block content %}
+{% if user.is_authenticated %}
+<h1>Choose input</h1>
+<p><a href="{% url 'income'%}">Input income</a></p>
+<p><a href="{% url 'expenses'%}">Input expenses</a></p>
+<p><a href="{% url 'goal'%}">Input goals</a></p>
+<p><a href="{% url 'side_income' %}">Input side income</a></p>
+{%else%}
+<p>Please log in first <a href="/login">here</a>.</p>
+{%endif%}
+{% endblock %}

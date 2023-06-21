@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if data%}
+<p>You have not inputted any data yet.</p>
+{%else%}
+{% autoescape off %}
+{{plot_div}}
+{% endautoescape %}
+{%endif%}
+<a href="{% url 'choose_chart' %}">Go back</a><br>
+{% endblock %}
